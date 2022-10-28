@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 
 def validate_module_arguments(function):
-    @functools.wraps
+    @functools.wraps(function)
     def wrapper(**kwargs):
         if not all([kwargs.get("module_original_name"), kwargs.get("module_alias_name")]):
             raise ValueError(
